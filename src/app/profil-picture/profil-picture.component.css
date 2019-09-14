@@ -1,0 +1,9 @@
+#profil_picture
+{
+    border-radius: 50%;
+    object-fit: fill;
+    width: 12em;
+    position: relative;
+    bottom: 8em;
+    box-shadow: 0 0 5px #aaa;
+}
