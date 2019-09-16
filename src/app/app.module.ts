@@ -6,6 +6,8 @@ import { ProfilPictureComponent } from './profil-picture/profil-picture.componen
 import { ActivitiesComponent } from './activities/activities.component';
 
 import {RouterModule, Routes} from '@angular/router';
+import {MyLinkedinComponent} from "./my-linkedin/my-linkedin.component";
+import {MyGitComponent} from "./my-git/my-git.component";
 
 const appRoutes: Routes = [
   { path: 'activities', component: ActivitiesComponent },
@@ -16,7 +18,9 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     ProfilPictureComponent,
-    ActivitiesComponent
+    ActivitiesComponent,
+    MyLinkedinComponent,
+    MyGitComponent
   ],
   imports: [
     BrowserModule,
