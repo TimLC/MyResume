@@ -16,11 +16,22 @@ const appRoutes: Routes = [
   {path: 'contact', component: ContactComponent}
 ];
 
+import {RouterModule, Routes} from '@angular/router';
+import {MyLinkedinComponent} from "./my-linkedin/my-linkedin.component";
+import {MyGitComponent} from "./my-git/my-git.component";
+
+const appRoutes: Routes = [
+  { path: 'activities', component: ActivitiesComponent },
+  { path: '', component: ActivitiesComponent }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
     ProfilPictureComponent,
     ActivitiesComponent,
+    MyLinkedinComponent,
+    MyGitComponent
     ResumeComponent,
     ExperienceComponent,
     SkillComponent,
