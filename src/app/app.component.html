@@ -4,24 +4,28 @@
 
 </div>
 
+<div class="row">
+  <div class="offset-md-5 col-md-2 offset-sm-4 col-sm-4">
+    <app-profil-picture></app-profil-picture>
+  </div>
+  <a href="../assets/documents/resume.pdf" class="col-md-2 col-sm-3" id="resume_button" target="_blank" title="my resume">
+    <button class="btn btn-primary"><span class="fa fa-arrow-circle-o-down"></span> Resume</button>
+  </a>
+</div>
+
 
 
 <div id="card" class="offset-md-1 col-md-10">
-
   <div class="container">
     <nav id="nav_bar">
-      <ul class="list-inline row">
-        <li class="list-inline-item col"><a routerLink="projects">Activities</a></li>
-        <li class="list-inline-item col"><a routerLink="projects">Resume</a></li>
-        <li class="list-inline-item col"><app-profil-picture></app-profil-picture></li>
-        <li class="list-inline-item col"><a routerLink="projects">Projects</a></li>
-        <li class="list-inline-item col"><a routerLink="projects">Contact</a></li>
+      <ul class="nav row">
+        <li class="nav-item col-md-2 nav_component"><a routerLink="activities" href="#" class="nav-link active">Activities</a></li>
+        <li class="nav-item col-md-2 nav_component"><a routerLink="resume" class="nav-link">Resume</a></li>
+        <li class="nav-item col-md-4 nav_component"></li>
+        <li class="nav-item col-md-2 nav_component"><a routerLink="projects" class="nav-link">Projects</a></li>
+        <li class="nav-item col-md-2 nav_component"><a routerLink="contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
-
-    <a href="../assets/documents/resume.pdf" class="offset-md-10 col-md-2" id="resume_button">
-      <button class="btn btn-primary"><span class="fa fa-arrow-circle-o-down"></span> Resume</button>
-    </a>
   </div>
 
   <div class="container">
