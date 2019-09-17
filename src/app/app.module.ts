@@ -4,25 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ProfilPictureComponent } from './profil-picture/profil-picture.component';
 import { ActivitiesComponent } from './activities/activities.component';
-import { ResumeComponent } from './resume/resume.component';
-import {RouterModule, Routes} from "@angular/router";
-import { ExperienceComponent } from './experience/experience.component';
-import { SkillComponent } from './skill/skill.component';
-import { HobbieComponent } from './hobbie/hobbie.component';
 import { ContactComponent } from './contact/contact.component';
-
-const appRoutes: Routes = [
-  {path: 'resume', component: ResumeComponent},
-  {path: 'contact', component: ContactComponent}
-];
-
 import {RouterModule, Routes} from '@angular/router';
 import {MyLinkedinComponent} from "./my-linkedin/my-linkedin.component";
 import {MyGitComponent} from "./my-git/my-git.component";
+import { FrontEndComponent } from './front-end/front-end.component';
+import { BackEndComponent } from './back-end/back-end.component';
+import {ResumeModule} from "./resume/resume.module";
+
+
 
 const appRoutes: Routes = [
-  { path: 'activities', component: ActivitiesComponent },
-  { path: '', component: ActivitiesComponent }
+  {path: 'contact', component: ContactComponent},
+  {path: 'activities', component: ActivitiesComponent },
+  {path: '', component: FrontEndComponent},
+  {path: 'backend', component: BackEndComponent}
 ];
 
 @NgModule({
@@ -31,16 +27,15 @@ const appRoutes: Routes = [
     ProfilPictureComponent,
     ActivitiesComponent,
     MyLinkedinComponent,
-    MyGitComponent
-    ResumeComponent,
-    ExperienceComponent,
-    SkillComponent,
-    HobbieComponent,
-    ContactComponent
+    MyGitComponent,
+    ContactComponent,
+    FrontEndComponent,
+    BackEndComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    ResumeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
