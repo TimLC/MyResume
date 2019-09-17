@@ -12,4 +12,12 @@ export class BackOfficeComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSubmit(form: ngForm) {
+    const lastName = form.value['lastName'];
+    const firstName = form.value['firstName'];
+    const oldPassword = form.value['oldPassword'];
+    const newPassword = form.value['newPassword'];
+    const confirmNewPassword = form.value['confirmNewPassword'];
+    const jobTittle = form.value['jobTittle'];
+  }
 }
