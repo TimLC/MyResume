@@ -17,11 +17,11 @@
   <div class="container">
     <nav id="nav_bar">
       <ul class="nav row">
-        <li class="nav-item col-md-2 nav_component"><a routerLink="activities"class="nav-link active">Activities</a></li>
-        <li class="nav-item col-md-2 nav_component"><a [routerLink] ="[{outlets:{frontend: ['resume']}}]" class="nav-link">Resume</a></li>
+        <li class="nav-item col-md-2 nav_component"><a routerLink="activities" routerLinkActive="active" class="nav-link active">Activities</a></li>
+        <li class="nav-item col-md-2 nav_component"><a routerLink="resume" routerLinkActive="active" class="nav-link">Resume</a></li>
         <li class="nav-item col-md-4 nav_component"></li>
-        <li class="nav-item col-md-2 nav_component"><a routerLink="projects" class="nav-link">Projects</a></li>
-        <li class="nav-item col-md-2 nav_component"><a routerLink="contact" class="nav-link">Contact</a></li>
+        <li class="nav-item col-md-2 nav_component"><a routerLink="projects" routerLinkActive="active" class="nav-link">Projects</a></li>
+        <li class="nav-item col-md-2 nav_component"><a routerLink="contact" routerLinkActive="active" class="nav-link">Contact</a></li>
       </ul>
     </nav>
   </div>
@@ -29,7 +29,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <router-outlet name="frontend"></router-outlet>
+        <router-outlet></router-outlet>
       </div>
     </div>
   </div>
