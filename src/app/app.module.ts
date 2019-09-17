@@ -13,17 +13,15 @@ import { ContactComponent } from './contact/contact.component';
 
 const appRoutes: Routes = [
   {path: 'resume', component: ResumeComponent},
-  {path: 'contact', component: ContactComponent}
-];
-
-import {RouterModule, Routes} from '@angular/router';
-import {MyLinkedinComponent} from "./my-linkedin/my-linkedin.component";
-import {MyGitComponent} from "./my-git/my-git.component";
-
-const appRoutes: Routes = [
+  {path: 'contact', component: ContactComponent},
   { path: 'activities', component: ActivitiesComponent },
   { path: '', component: ActivitiesComponent }
 ];
+
+
+import {MyLinkedinComponent} from "./my-linkedin/my-linkedin.component";
+import {MyGitComponent} from "./my-git/my-git.component";
+
 
 @NgModule({
   declarations: [
@@ -31,7 +29,7 @@ const appRoutes: Routes = [
     ProfilPictureComponent,
     ActivitiesComponent,
     MyLinkedinComponent,
-    MyGitComponent
+    MyGitComponent,
     ResumeComponent,
     ExperienceComponent,
     SkillComponent,
