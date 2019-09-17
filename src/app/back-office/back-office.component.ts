@@ -27,6 +27,15 @@ export class BackOfficeComponent implements OnInit {
 
   }
 
+
+  onSubmit(form: ngForm) {
+    const lastName = form.value['lastName'];
+    const firstName = form.value['firstName'];
+    const oldPassword = form.value['oldPassword'];
+    const newPassword = form.value['newPassword'];
+    const confirmNewPassword = form.value['confirmNewPassword'];
+    const jobTittle = form.value['jobTittle'];
+
   onAddHobby() {
     const newHobbyControl = this.formBuilder.control(null, Validators.required);
     this.getHobbies().push(newHobbyControl);
@@ -41,5 +50,6 @@ export class BackOfficeComponent implements OnInit {
   }
   getCompetences(): FormArray {
     return this.userForm.get('competences') as FormArray;
+
   }
 }

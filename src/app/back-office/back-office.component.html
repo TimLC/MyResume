@@ -1,4 +1,36 @@
-<p>back-office works!</p>
+
+<div class="row">
+  <div class="col-sm-9">
+    <form (ngSubmit)="onSubmit(f)" #f="ngform">
+      <div class="form-group col-sm-12">
+        <label class="row">Last Name</label>
+        <input class="col-sm-12" type="text" id="lastName" name="lastName" >
+      </div>
+      <div class="form-group col-sm-12">
+        <label class="row">First name</label>
+        <input class="col-sm-12" type="text" id="firstName" name="firstName">
+      </div>
+      <!-- *ngif pour afficher si changement de password-->
+      <div class="form-group col-sm-12">
+        <label class="row">Old Password</label>
+        <input class="col-sm-12" type="password" id="oldPassword" name="oldPassword">
+      </div>
+      <div class="form-group col-sm-12">
+        <label class="row">New Password</label>
+        <input class="col-sm-12" type="password" id="newPassword" name="newPassword">
+      </div>
+      <div class="form-group col-sm-12">
+        <label class="row">Confirm New Password</label>
+        <input class="col-sm-12" type="password" id="confirmNewPassword">
+      </div>
+      <div class="form-group col-sm-12">
+        <label class="row">Job Tittle</label>
+        <input class="col-sm-12" type="text" id="jobTittle" name="jobTittle">
+      </div>
+      <button type="submit" class="btn btn-primary">Enregitrer</button>
+    </form>
+  </div>
+</div>
 
 <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
   <div formArrayName="hobbies">

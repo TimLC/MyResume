@@ -10,6 +10,7 @@ import { MyLinkedinComponent} from "./my-linkedin/my-linkedin.component";
 import { MyGitComponent} from "./my-git/my-git.component";
 import { FrontEndComponent } from './front-end/front-end.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
+import {FormsModule} from "@angular/forms";
 import { ReactiveFormsModule} from "@angular/forms";
 import { ResumeComponent} from "./resume/resume.component";
 import { HobbieComponent} from "./hobbie/hobbie.component";
@@ -59,6 +60,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
+    FormsModule
     ReactiveFormsModule
   ],
   providers: [],
