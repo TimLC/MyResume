@@ -11,6 +11,7 @@ import {MyGitComponent} from "./my-git/my-git.component";
 import { FrontEndComponent } from './front-end/front-end.component';
 import {ResumeModule} from "./resume/resume.module";
 import { BackOfficeComponent } from './back-office/back-office.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    ResumeModule
+    ResumeModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
