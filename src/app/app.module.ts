@@ -60,7 +60,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [],

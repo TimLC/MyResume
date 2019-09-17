@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormGroup, Validators, NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-back-office',
@@ -27,14 +27,14 @@ export class BackOfficeComponent implements OnInit {
 
   }
 
-
-  onSubmit(form: ngForm) {
+  onSubmit(form: NgForm) {
     const lastName = form.value['lastName'];
     const firstName = form.value['firstName'];
     const oldPassword = form.value['oldPassword'];
     const newPassword = form.value['newPassword'];
     const confirmNewPassword = form.value['confirmNewPassword'];
     const jobTittle = form.value['jobTittle'];
+  }
 
   onAddHobby() {
     const newHobbyControl = this.formBuilder.control(null, Validators.required);
