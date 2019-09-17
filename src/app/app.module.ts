@@ -9,8 +9,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {MyLinkedinComponent} from "./my-linkedin/my-linkedin.component";
 import {MyGitComponent} from "./my-git/my-git.component";
 import { FrontEndComponent } from './front-end/front-end.component';
-import { BackEndComponent } from './back-end/back-end.component';
 import {ResumeModule} from "./resume/resume.module";
+import { BackOfficeComponent } from './back-office/back-office.component';
 
 
 
@@ -18,7 +18,7 @@ const appRoutes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'activities', component: ActivitiesComponent },
   {path: '', component: FrontEndComponent},
-  {path: 'backend', component: BackEndComponent}
+  {path: 'backoffice', component: BackOfficeComponent}
 ];
 
 @NgModule({
@@ -30,7 +30,7 @@ const appRoutes: Routes = [
     MyGitComponent,
     ContactComponent,
     FrontEndComponent,
-    BackEndComponent
+    BackOfficeComponent
   ],
   imports: [
     BrowserModule,
