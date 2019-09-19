@@ -9,6 +9,7 @@ export class user {
   private _password: string;
   private _phoneNumber: number;
   private _emailAddress: string;
+  isAuth= false;
 
 
   constructor(id: number, userame: string, fullName: string, jobTittle: string, idGithub: string, password: string, phoneNumber: number, emailAddress: string) {
