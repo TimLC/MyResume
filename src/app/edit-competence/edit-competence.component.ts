@@ -35,7 +35,7 @@ export class EditCompetenceComponent implements OnInit {
 
   }
 
-  onSuppCompetence() {
-
+  onSuppCompetence(index) {
+    this.getCompetences().removeAt(index);
   }
 }

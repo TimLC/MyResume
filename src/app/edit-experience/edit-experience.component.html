@@ -3,7 +3,19 @@
   <div formArrayName="experiences">
     <h3>Your Experiences</h3>
     <div class="form-group" *ngFor="let competenceControl of getExperiences().controls; let j = index">
+      <label>Company</label>
+      <input type="text" class="form-control" [formControlName]="competenceControl">
+      <label>Strating date</label>
       <input type="text" class="form-control" [formControlName]="j">
+      <label>Ending date</label>
+      <input type="text" class="form-control" [formControlName]="j">
+      <label>Adress</label>
+      <input type="text" class="form-control" [formControlName]="j">
+      <label>Description</label>
+      <input type="text" class="form-control" [formControlName]="j">
+      <br>
+      <button type="button" class="btn btn-danger">Delete</button>
+      <br>
     </div>
     <button type="button" class="btn btn-success" (click)="onAddExperience()">Add competence</button>
   </div>

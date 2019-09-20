@@ -5,7 +5,7 @@
     <div class="form-group" *ngFor="let competenceControl of getCompetences().controls; let j = index">
       <div class="row">
         <input type="text" class="form-control col-sm-10" [formControlName]="j">
-        <button type="button" class="btn btn-danger col-sm-2" (click)="onSuppCompetence()">Delete</button>
+        <button type="button" class="btn btn-danger col-sm-2" (click)="onSuppCompetence(j)">Delete</button>
       </div>
     </div>
     <button type="button" class="btn btn-success" (click)="onAddCompetence()">Add competence</button>
