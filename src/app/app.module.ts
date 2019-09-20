@@ -17,6 +17,11 @@ import { HobbieComponent} from "./hobbie/hobbie.component";
 import { SkillComponent} from "./skill/skill.component";
 import { ExperienceComponent} from "./experience/experience.component";
 import { ProjetsComponent} from "./projets/projets.component";
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
+import { EditHobbieComponent } from './edit-hobbie/edit-hobbie.component';
+import { EditExperienceComponent } from './edit-experience/edit-experience.component';
+import { EditProjetComponent } from './edit-projet/edit-projet.component';
+import { EditCompetenceComponent } from './edit-competence/edit-competence.component';
 
 const appRoutes: Routes = [
   {path: 'frontend', component: FrontEndComponent,
@@ -38,7 +43,29 @@ const appRoutes: Routes = [
         component: ContactComponent
       }
     ]},
-  {path: 'backoffice', component: BackOfficeComponent}
+  {path: 'backoffice', component: BackOfficeComponent,
+    children:[
+      {
+        path : 'Profil',
+        component: EditProfilComponent
+      },
+      {
+        path : 'Experiences',
+        component: EditExperienceComponent
+      },
+      {
+        path: 'Projets',
+        component: EditProjetComponent
+      },
+      {
+        path: 'Competences',
+        component: EditCompetenceComponent
+      },
+      {
+        path : 'Hobbies',
+        component: EditHobbieComponent
+      }
+    ]}
 ];
 
 @NgModule({
@@ -55,7 +82,12 @@ const appRoutes: Routes = [
     HobbieComponent,
     SkillComponent,
     ExperienceComponent,
-    ProjetsComponent
+    ProjetsComponent,
+    EditProfilComponent,
+    EditHobbieComponent,
+    EditExperienceComponent,
+    EditProjetComponent,
+    EditCompetenceComponent
   ],
   imports: [
     BrowserModule,

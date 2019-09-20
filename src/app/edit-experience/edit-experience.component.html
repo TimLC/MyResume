@@ -1,0 +1,13 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+
+  <div formArrayName="experiences">
+    <h3>Your Experiences</h3>
+    <div class="form-group" *ngFor="let competenceControl of getExperiences().controls; let j = index">
+      <input type="text" class="form-control" [formControlName]="j">
+    </div>
+    <button type="button" class="btn btn-success" (click)="onAddExperience()">Add competence</button>
+  </div>
+  <br>
+
+  <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Save</button>
+</form>
