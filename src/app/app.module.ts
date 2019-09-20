@@ -17,6 +17,7 @@ import { HobbieComponent} from "./hobbie/hobbie.component";
 import { SkillComponent} from "./skill/skill.component";
 import { ExperienceComponent} from "./experience/experience.component";
 import { ProjetsComponent} from "./projets/projets.component";
+import {BackOfficeLogComponent} from "./back-office-log/back-office-log.component";
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { EditHobbieComponent } from './edit-hobbie/edit-hobbie.component';
 import { EditExperienceComponent } from './edit-experience/edit-experience.component';
@@ -43,6 +44,7 @@ const appRoutes: Routes = [
         component: ContactComponent
       }
     ]},
+  {path: 'backofficelog', component: BackOfficeLogComponent},
   {path: 'backoffice', component: BackOfficeComponent,
     children:[
       {
@@ -78,6 +80,7 @@ const appRoutes: Routes = [
     ContactComponent,
     FrontEndComponent,
     BackOfficeComponent,
+    BackOfficeLogComponent,
     ResumeComponent,
     HobbieComponent,
     SkillComponent,
