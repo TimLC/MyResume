@@ -35,4 +35,7 @@ export class EditHobbieComponent implements OnInit {
     return this.userForm.get('hobbies') as FormArray;
   }
 
+  onSuppHobby(index) {
+    this.getHobbies().removeAt(index);
+  }
 }

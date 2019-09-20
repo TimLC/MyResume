@@ -34,4 +34,8 @@ export class EditCompetenceComponent implements OnInit {
     return this.userForm.get('competences') as FormArray;
 
   }
+
+  onSuppCompetence() {
+
+  }
 }
