@@ -23,6 +23,9 @@ import { EditHobbieComponent } from './edit-hobbie/edit-hobbie.component';
 import { EditExperienceComponent } from './edit-experience/edit-experience.component';
 import { EditProjetComponent } from './edit-projet/edit-projet.component';
 import { EditCompetenceComponent } from './edit-competence/edit-competence.component';
+import {HttpClientModule} from "@angular/common/http";
+import {GitAPIService} from "../service/git-api.service";
+import {GitAPIModel} from "../Model/gitAPI.model";
 
 const appRoutes: Routes = [
   {path: 'frontend', component: FrontEndComponent,
@@ -96,9 +99,10 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [GitAPIService, GitAPIModel, MyGitComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
