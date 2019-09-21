@@ -21,8 +21,8 @@ import {BackOfficeLogComponent} from "./back-office-log/back-office-log.componen
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { EditHobbieComponent } from './edit-hobbie/edit-hobbie.component';
 import { EditExperienceComponent } from './edit-experience/edit-experience.component';
-import { EditProjetComponent } from './edit-projet/edit-projet.component';
 import { EditCompetenceComponent } from './edit-competence/edit-competence.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
 
 const appRoutes: Routes = [
   {path: 'frontend', component: FrontEndComponent,
@@ -57,7 +57,7 @@ const appRoutes: Routes = [
       },
       {
         path: 'Projets',
-        component: EditProjetComponent
+        component: EditProjectComponent
       },
       {
         path: 'Competences',
@@ -89,8 +89,8 @@ const appRoutes: Routes = [
     EditProfilComponent,
     EditHobbieComponent,
     EditExperienceComponent,
-    EditProjetComponent,
-    EditCompetenceComponent
+    EditCompetenceComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -98,7 +98,8 @@ const appRoutes: Routes = [
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

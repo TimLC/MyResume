@@ -14,6 +14,7 @@ export class EditHobbieComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit() {
+
     this.initForm();
   }
 
