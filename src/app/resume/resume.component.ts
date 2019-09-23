@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {experienceService} from "../../service/experience.service";
+import {experience} from "../../Model/experience";
 
 @Component({
   selector: 'app-resume',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumeComponent implements OnInit {
   test=['a','b','c','d'];
-  constructor() { }
+  Experiences: experience[] = [];
+  constructor(private experiences: experienceService) { }
 
   ngOnInit() {
+    this.findExperienceBDD();
+  }
+  findExperienceBDD() {
+    this.experiences.setExperience();
+    this.Experiences = this.experiences.getExperience();
   }
 
 }
