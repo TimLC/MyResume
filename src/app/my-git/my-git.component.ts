@@ -12,7 +12,7 @@ import {GitAPIModel} from "../../Model/gitAPI.model";
 })
 @Injectable()
 export class MyGitComponent implements OnInit {
-
+   venomtab:Array<GitAPIModel>=[];
   constructor(private http: HttpClient, private gitAPIService: GitAPIService) { }
 
   ngOnInit() {
@@ -25,19 +25,19 @@ export class MyGitComponent implements OnInit {
       spiderMan=this.gitAPIService.fetchedData(data);
 
       this.gitAPIService.getConfig(spiderMan.name).subscribe(dataRepo => {
-         let venomtab:GitAPIModel[]=[];
+
          let veno:GitAPIModel;
 
          for(let item in dataRepo){
            veno=this.gitAPIService.fetchedDataM(dataRepo[item]);
 
-            venomtab.push(veno);
+            this.venomtab.push(veno);
 
            this.gitAPIService.getConfig(commitUrl+"/"+spiderMan.login+"/"+dataRepo[item].name+"/stats/commit_activity").subscribe(dataCommits=> {
 
 
-             venomtab[item].totalCommits=this.gitAPIService.commitsCalculus(dataCommits);
-             console.log(venomtab);
+             this.venomtab[item].totalCommits=this.gitAPIService.commitsCalculus(dataCommits);
+             console.log(this.venomtab);
 
            });
 

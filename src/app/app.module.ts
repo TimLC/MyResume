@@ -26,6 +26,7 @@ import { EditCompetenceComponent } from './edit-competence/edit-competence.compo
 import {HttpClientModule} from "@angular/common/http";
 import {GitAPIService} from "../service/git-api.service";
 import {GitAPIModel} from "../Model/gitAPI.model";
+import { MyGitProjectComponent } from './my-git-project/my-git-project.component';
 
 const appRoutes: Routes = [
   {path: 'frontend', component: FrontEndComponent,
@@ -93,7 +94,8 @@ const appRoutes: Routes = [
     EditHobbieComponent,
     EditExperienceComponent,
     EditProjetComponent,
-    EditCompetenceComponent
+    EditCompetenceComponent,
+    MyGitProjectComponent
   ],
   imports: [
     BrowserModule,
