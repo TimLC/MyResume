@@ -1,8 +1,18 @@
-export class experience {
 
-  constructor(public id: number,public company: string, public beginDate: string, public endDate: string, public address: string, public description: string) {
+export class Experience {
+  id: number;
+  company: string;
+  beginDate: string;
+  endDate: string;
+  address: string;
+  description: string;
+
+  constructor(id: number, company: string, beginDate: string, endDate: string, address: string, description: string) {
+    this.id = id;
+    this.company = company;
+    this.beginDate = beginDate;
+    this.endDate = endDate;
+    this.address = address;
+    this.description = description;
   }
-
-  }
-
-
+}
