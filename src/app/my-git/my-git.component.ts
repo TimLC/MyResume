@@ -17,25 +17,34 @@ export class MyGitComponent implements OnInit {
 
   ngOnInit() {
 
-    const configUrl = 'https://api.github.com/users/TimLC';
+    const configUrl = 'https://api.github.com/users/PolFRX';
+    const commitUrl='https://api.github.com/repos';
     this.gitAPIService.getConfig(configUrl).subscribe(data => {
-      console.log(typeof data);
+
       let spiderMan: GitAPIModel;
       spiderMan=this.gitAPIService.fetchedData(data);
-      console.log(typeof spiderMan);
-      console.log(spiderMan.id);
 
-      // //reception of the model
-      // //call of commits
-      console.log(typeof spiderMan.repos_url);
-       this.gitAPIService.getConfig(spiderMan.repos_url).subscribe(dataRepo => {
-        console.log(dataRepo);
-        let venom:GitAPIModel;
-        venom= this.gitAPIService.fetchedDataM(dataRepo);
-      console.log(typeof venom.git_commits_url);
-         this.gitAPIService.getConfig(venom.git_commits_url).subscribe(dataCommits=> {
-           console.log(dataCommits);
-         })
+      this.gitAPIService.getConfig(spiderMan.name).subscribe(dataRepo => {
+         let venomtab:GitAPIModel[]=[];
+         let veno:GitAPIModel;
+
+         for(let item in dataRepo){
+           veno=this.gitAPIService.fetchedDataM(dataRepo[item]);
+
+            venomtab.push(veno);
+
+           this.gitAPIService.getConfig(commitUrl+"/"+spiderMan.login+"/"+dataRepo[item].name+"/stats/commit_activity").subscribe(dataCommits=> {
+
+
+             venomtab[item].totalCommits=this.gitAPIService.commitsCalculus(dataCommits);
+             console.log(venomtab);
+
+           });
+
+         }
+
+
+
        });
        console.log(data);});
 

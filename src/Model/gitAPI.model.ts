@@ -4,7 +4,7 @@ import {Injectable} from "@angular/core";
 export class GitAPIModel {
 
 
-  constructor(public id: number, public login: string, public repos_url: string, public git_commits_url?:string) {
+  constructor(public id: number, public login?: string, public name?: string, public description?:string, public commits_url?:string, public totalCommits?:number) {
   }
 
 }
