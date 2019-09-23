@@ -23,7 +23,7 @@ import { EditHobbieComponent } from './edit-hobbie/edit-hobbie.component';
 import { EditExperienceComponent } from './edit-experience/edit-experience.component';
 import { EditCompetenceComponent } from './edit-competence/edit-competence.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
-import {experienceService} from "../service/experience.service";
+import { ExperienceService } from "../service/experience.service";
 
 const appRoutes: Routes = [
   {path: 'frontend', component: FrontEndComponent,
@@ -100,8 +100,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule
   ],
   providers: [
-    experienceService
-
+    ExperienceService
   ],
   bootstrap: [AppComponent]
 })
