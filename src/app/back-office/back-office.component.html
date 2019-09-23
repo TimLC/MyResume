@@ -1,56 +1,35 @@
+<br>
+<div id="card" class="offset-sm-1 col-sm-10">
+  <div class="container">
+    <nav  class="navbar navbar-expand navbar-light bg-light">
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Profil" routerLinkActive="active">Profil<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Experiences" routerLinkActive="active" >Experiences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Projets" routerLinkActive="active" >Projets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Competences" routerLinkActive="active" >Competences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Hobbies" routerLinkActive="active" >Hobbies</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-<div class="row">
-  <div class="col-sm-9">
-    <form (ngSubmit)="onSubmit(f)" #f="ngform">
-      <div class="form-group col-sm-12">
-        <label class="row">Last Name</label>
-        <input class="col-sm-12" type="text" id="lastName" name="lastName" >
-      </div>
-      <div class="form-group col-sm-12">
-        <label class="row">First name</label>
-        <input class="col-sm-12" type="text" id="firstName" name="firstName">
-      </div>
-      <!-- *ngif pour afficher si changement de password-->
-      <div class="form-group col-sm-12">
-        <label class="row">Old Password</label>
-        <input class="col-sm-12" type="password" id="oldPassword" name="oldPassword">
-      </div>
-      <div class="form-group col-sm-12">
-        <label class="row">New Password</label>
-        <input class="col-sm-12" type="password" id="newPassword" name="newPassword">
-      </div>
-      <div class="form-group col-sm-12">
-        <label class="row">Confirm New Password</label>
-        <input class="col-sm-12" type="password" id="confirmNewPassword">
-      </div>
-      <div class="form-group col-sm-12">
-        <label class="row">Job Tittle</label>
-        <input class="col-sm-12" type="text" id="jobTittle" name="jobTittle">
-      </div>
-      <button type="submit" class="btn btn-primary">Enregitrer</button>
-    </form>
   </div>
 </div>
-
-<form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
-  <div formArrayName="hobbies">
-    <h3>Your hobbies</h3>
-    <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i = index">
-      <input type="text" class="form-control" [formControlName]="i">
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <router-outlet></router-outlet>
     </div>
-    <button type="button" class="btn btn-success" (click)="onAddHobby()">Add hobby</button>
   </div>
-  <br>
-
-  <div formArrayName="competences">
-    <h3>Your competences</h3>
-    <div class="form-group" *ngFor="let competenceControl of getCompetences().controls; let j = index">
-      <input type="text" class="form-control" [formControlName]="j">
-    </div>
-    <button type="button" class="btn btn-success" (click)="onAddCompetence()">Add competence</button>
-  </div>
-  <br>
-
-  <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Soumettre</button>
-</form>
-
+</div>

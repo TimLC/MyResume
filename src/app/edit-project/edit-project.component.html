@@ -1,0 +1,16 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+  <div formArrayName="projects">
+    <h3>Your projects</h3>
+    <p>Add Github link</p>
+    <div class="form-group" *ngFor="let projectControl of getProjects().controls; let i = index">
+      <div class="row">
+        <input type="text" class="form-control col-sm-10" [formControlName]="i" placeholder="Link Github">
+        <button type="button" class="btn btn-danger col-sm-2" (click)="onSuppProject(i)">Delete</button>
+      </div>
+    </div>
+    <button type="button" class="btn btn-success" (click)="onAddProject()">Add project</button>
+  </div>
+  <br>
+
+  <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Save</button>
+</form>

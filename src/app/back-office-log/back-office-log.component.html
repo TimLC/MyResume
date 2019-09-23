@@ -1,0 +1,32 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="../../assets/images/Pol_Site.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <form (ngSubmit)="onLogIn(formu)" #formu="ngForm">
+      <div class="form-group">
+      <input type="text" id="login" class="fadeIn second form-control" name="username" placeholder="login" ngModel required="">
+      </div>
+      <div class="form-group">
+      <input type="password" id="password" class="fadeIn third form-control" name="password" placeholder="password" ngModel>
+      </div>
+      <input type="submit" class="fadeIn fourth" value="Log In" [disabled]="formu.invalid">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>

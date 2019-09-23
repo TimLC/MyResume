@@ -17,6 +17,13 @@ import { HobbieComponent} from "./hobbie/hobbie.component";
 import { SkillComponent} from "./skill/skill.component";
 import { ExperienceComponent} from "./experience/experience.component";
 import { ProjetsComponent} from "./projets/projets.component";
+import {BackOfficeLogComponent} from "./back-office-log/back-office-log.component";
+import { EditProfilComponent } from './edit-profil/edit-profil.component';
+import { EditHobbieComponent } from './edit-hobbie/edit-hobbie.component';
+import { EditExperienceComponent } from './edit-experience/edit-experience.component';
+import { EditCompetenceComponent } from './edit-competence/edit-competence.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
+import {experienceService} from "../service/experience.service";
 
 const appRoutes: Routes = [
   {path: 'frontend', component: FrontEndComponent,
@@ -38,7 +45,30 @@ const appRoutes: Routes = [
         component: ContactComponent
       }
     ]},
-  {path: 'backoffice', component: BackOfficeComponent}
+  {path: 'backofficelog', component: BackOfficeLogComponent},
+  {path: 'backoffice', component: BackOfficeComponent,
+    children:[
+      {
+        path : 'Profil',
+        component: EditProfilComponent
+      },
+      {
+        path : 'Experiences',
+        component: EditExperienceComponent
+      },
+      {
+        path: 'Projets',
+        component: EditProjectComponent
+      },
+      {
+        path: 'Competences',
+        component: EditCompetenceComponent
+      },
+      {
+        path : 'Hobbies',
+        component: EditHobbieComponent
+      }
+    ]}
 ];
 
 @NgModule({
@@ -51,19 +81,28 @@ const appRoutes: Routes = [
     ContactComponent,
     FrontEndComponent,
     BackOfficeComponent,
+    BackOfficeLogComponent,
     ResumeComponent,
     HobbieComponent,
     SkillComponent,
     ExperienceComponent,
-    ProjetsComponent
+    ProjetsComponent,
+    EditProfilComponent,
+    EditHobbieComponent,
+    EditExperienceComponent,
+    EditCompetenceComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    experienceService
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
