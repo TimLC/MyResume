@@ -1,0 +1,10 @@
+.encadre
+{
+  background-color: white;
+  border:0.5px #aaaaaa solid;
+  font-family: 'Bree Serif', serif;
+  min-height: 5em;
+  text-align: center;
+
+  padding-bottom: 4.2%;
+}
