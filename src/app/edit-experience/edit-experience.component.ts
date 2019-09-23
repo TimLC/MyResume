@@ -1,6 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {experience} from '../../Model/experience';
+import {experienceService} from '../../service/experience.service';
 
 @Component({
   selector: 'app-edit-experience',
@@ -11,7 +11,7 @@ export class EditExperienceComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private experiences: experienceService) { }
 
   ngOnInit() {
 
@@ -20,30 +20,22 @@ export class EditExperienceComponent implements OnInit {
   }
 
   initForm() {
-
     this.userForm = this.formBuilder.group({
       experiences: this.formBuilder.array([])
     });
-    var newExperienceControl = this.formBuilder.group({
-      id: 1,
-      company: 'google',
-      beginDate: '10',
-      endDate: '20',
-      address: 'aaa',
-      description: 'lol'
-    });
-    this.getExperiences().push(newExperienceControl);
-    newExperienceControl = this.formBuilder.group({
-      id: 1,
-      company: 'AWS',
-      beginDate: '10',
-      endDate: '20',
-      address: 'aaa',
-      description: 'lol'
-    });
-    this.getExperiences().push(newExperienceControl);
+    this.findExperienceBDD();
   }
+  findExperienceBDD() {
+    this.experiences.setExperience();
+    var experiences = this.experiences.getExperience();
 
+    formBuilder: FormBuilder
+    for (var i = 0; i < experiences.length; i++) {
+      console.log(experiences[i]);
+      const newExperienceControl = this.formBuilder.group( experiences[i]);
+      this.getExperiences().push(newExperienceControl);
+    }
+  }
   onSubmitForm() {
 
   }
