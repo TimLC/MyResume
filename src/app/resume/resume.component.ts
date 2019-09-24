@@ -16,6 +16,7 @@ export class ResumeComponent implements OnInit {
     this.findExperienceBDD();
   }
   findExperienceBDD() {
+    this.Experiences = this.experiences.getExperiences();
     //this.experiences.setExperience();
     //this.Experiences = this.experiences.getExperience();
   }

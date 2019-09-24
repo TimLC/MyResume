@@ -10,20 +10,21 @@ import { MyLinkedinComponent} from "./my-linkedin/my-linkedin.component";
 import { MyGitComponent} from "./my-git/my-git.component";
 import { FrontEndComponent } from './front-end/front-end.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule} from "@angular/forms";
 import { ReactiveFormsModule} from "@angular/forms";
 import { ResumeComponent} from "./resume/resume.component";
 import { HobbieComponent} from "./hobbie/hobbie.component";
 import { SkillComponent} from "./skill/skill.component";
 import { ExperienceComponent} from "./experience/experience.component";
 import { ProjetsComponent} from "./projets/projets.component";
-import {BackOfficeLogComponent} from "./back-office-log/back-office-log.component";
+import { BackOfficeLogComponent} from "./back-office-log/back-office-log.component";
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { EditHobbieComponent } from './edit-hobbie/edit-hobbie.component';
 import { EditExperienceComponent } from './edit-experience/edit-experience.component';
 import { EditCompetenceComponent } from './edit-competence/edit-competence.component';
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { ExperienceService } from "../service/experience.service";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   {path: 'frontend', component: FrontEndComponent,
@@ -97,7 +98,8 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     ExperienceService
