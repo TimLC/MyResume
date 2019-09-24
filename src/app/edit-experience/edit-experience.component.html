@@ -2,8 +2,20 @@
 
   <div formArrayName="experiences">
     <h3>Your Experiences</h3>
-    <div class="form-group" *ngFor="let competenceControl of getExperiences().controls; let j = index">
-      <input type="text" class="form-control" [formControlName]="j">
+    <div class="form-group" *ngFor="let experience of getExperiences().controls; let j = index" [formGroupName]="j">
+      <label>Company</label>
+      <input type="text" class="form-control" formControlName="company">
+      <label>Strating date</label>
+      <input type="text" class="form-control" formControlName="beginDate">
+      <label>Ending date</label>
+      <input type="text" class="form-control" formControlName="endDate">
+      <label>Address</label>
+      <textarea type="text" rows="3" class="form-control" formControlName="address"></textarea>
+      <label>Description</label>
+      <input type="text" class="form-control" formControlName="description">
+      <br>
+      <button type="button" class="btn btn-danger" (click)="onSuppExperience(j)">Delete</button>
+      <br>
     </div>
     <button type="button" class="btn btn-success" (click)="onAddExperience()">Add competence</button>
   </div>

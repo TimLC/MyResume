@@ -10,23 +10,25 @@ import { MyLinkedinComponent} from "./my-linkedin/my-linkedin.component";
 import { MyGitComponent} from "./my-git/my-git.component";
 import { FrontEndComponent } from './front-end/front-end.component';
 import { BackOfficeComponent } from './back-office/back-office.component';
-import {FormsModule} from "@angular/forms";
+import { FormsModule} from "@angular/forms";
 import { ReactiveFormsModule} from "@angular/forms";
 import { ResumeComponent} from "./resume/resume.component";
 import { HobbieComponent} from "./hobbie/hobbie.component";
 import { SkillComponent} from "./skill/skill.component";
 import { ExperienceComponent} from "./experience/experience.component";
 import { ProjetsComponent} from "./projets/projets.component";
-import {BackOfficeLogComponent} from "./back-office-log/back-office-log.component";
+import { BackOfficeLogComponent} from "./back-office-log/back-office-log.component";
 import { EditProfilComponent } from './edit-profil/edit-profil.component';
 import { EditHobbieComponent } from './edit-hobbie/edit-hobbie.component';
 import { EditExperienceComponent } from './edit-experience/edit-experience.component';
-import { EditProjetComponent } from './edit-projet/edit-projet.component';
 import { EditCompetenceComponent } from './edit-competence/edit-competence.component';
-import {HttpClientModule} from "@angular/common/http";
 import {GitAPIService} from "../service/git-api.service";
 import {GitAPIModel} from "../Model/gitAPI.model";
 import { MyGitProjectComponent } from './my-git-project/my-git-project.component';
+import { EditProjectComponent } from './edit-project/edit-project.component';
+import { ExperienceService } from "../service/experience.service";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+
 
 const appRoutes: Routes = [
   {path: 'frontend', component: FrontEndComponent,
@@ -61,7 +63,7 @@ const appRoutes: Routes = [
       },
       {
         path: 'Projets',
-        component: EditProjetComponent
+        component: EditProjectComponent
       },
       {
         path: 'Competences',
@@ -93,9 +95,9 @@ const appRoutes: Routes = [
     EditProfilComponent,
     EditHobbieComponent,
     EditExperienceComponent,
-    EditProjetComponent,
-    EditCompetenceComponent,
     MyGitProjectComponent
+    EditCompetenceComponent,
+    EditProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -104,7 +106,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [GitAPIService, GitAPIModel, MyGitComponent ],
+  providers: [GitAPIService, GitAPIModel, MyGitComponent,ExperienceService ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
