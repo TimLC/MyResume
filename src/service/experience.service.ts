@@ -17,7 +17,6 @@ const httpOptions = {
 })
 export class ExperienceService {
 
-  private experiences: Experience[] = [];
   private url: string;
 
   constructor(private http: HttpClient) {
@@ -27,12 +26,7 @@ export class ExperienceService {
 
   //getExperiences(): Observable<Experience[]> {
   getExperiences(){
-     this.http.get(`${this.url}/experiences`, httpOptions).subscribe(experiences => {
-      for (let item in experiences){
-        this.experiences.push(experiences[item])
-      }
-    });
-     return this.experiences;
+     return this.http.get<Experience[]>(`${this.url}/experiences`, httpOptions);
 
     //return this.http.get<Experience[]>(`${this.url}/experiences`).pipe(timeout(10000));
   }
