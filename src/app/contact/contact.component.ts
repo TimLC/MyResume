@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -7,7 +11,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
 
-  constructor() { }
+  url: string = 'http://localhost:3000/send';
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
   }

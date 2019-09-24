@@ -1,0 +1,53 @@
+#titles
+{
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+h1
+{
+  font-family: 'Bree Serif', serif;
+}
+
+h2
+{
+  font-family: 'Amiri', serif;
+}
+
+#card
+{
+  background-color: white;
+  border-radius: 6px;
+  min-height: 40em;
+  text-align: center;
+  margin-top: 1em;
+}
+
+#resume_button
+{
+  border-radius: 12px;
+  position: relative;
+}
+
+#nav_bar
+{
+  text-align: center;
+  margin-bottom: 7em;
+}
+
+li
+{
+  margin-top: 1em;
+}
+
+nav
+{
+  font-family: 'Crete Round', serif;
+}
+
+.nav_component
+{
+  margin: 1em auto 0 auto
+}
+
+

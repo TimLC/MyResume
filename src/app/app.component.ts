@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'myresume';
+
+  route: string;
+  currentURL='';
+
+  constructor() {
+    this.currentURL = window.location.href;
+  }
+
+  ngOnInit() { }
 }
