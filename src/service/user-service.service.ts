@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import {User} from '../Model/user';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../environments/environment';
 import {timeout} from 'rxjs/operators';
 
 @Injectable({
@@ -13,11 +12,25 @@ export class UserService {
   private url: string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.url;
+    this.url = 'http://localhost:8080';
   }
 
-  connectUser(user: User): Observable<User[]> {
-    return this.http.post<User[]>(`${this.url}/user`, user).pipe(timeout(10000));
+  connectUser(user: User) {
+    let connexionVerified = 'false';
+    return this.http.post<string>(`${this.url}/user`, user).pipe(timeout(10000)).subscribe(
+        (response) => {
+          console.log(response);
+          connexionVerified = response;
+          if (connexionVerified) {
+            localStorage.setItem('isLog', 'true');
+          }
+          return connexionVerified;
+        }, (error) => {
+          console.log(error);
+          return false;
+        }
+    );
+
   }
 
   updateUser(user: User): Observable<User> {
@@ -30,6 +43,13 @@ export class UserService {
 
   updateUserPassword(user: User): Observable<User> {
     return this.http.put<User>(`${this.url}/user/update/password`, user).pipe(timeout(10000));
+  }
+
+  isLog() {
+    if (localStorage.getItem('isLog')) {
+      return true;
+    }
+    return false;
   }
 
 }

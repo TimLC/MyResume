@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from "@angular/forms";
-import {UseLogService} from '../../service/use-log.service'
-import {Router} from "@angular/router";
+import {NgForm} from '@angular/forms';
+import {UserService} from '../../service/user-service.service';
+import {Router} from '@angular/router';
+import {User} from '../../Model/user';
 
 @Component({
   selector: 'app-back-office-log',
@@ -9,20 +10,25 @@ import {Router} from "@angular/router";
   styleUrls: ['./back-office-log.component.css']
 })
 export class BackOfficeLogComponent implements OnInit {
+  errorConnexion: boolean;
 
-  constructor( private useLog: UseLogService,
-               private router: Router) { }
+  constructor( private userService: UserService,
+               private router: Router) {
+    this.errorConnexion = false;
+  }
 
   ngOnInit() {
+    this.errorConnexion = false;
   }
   onLogIn(form: NgForm) {
-    console.log(form.value);
-    const username = form.value['username'];
-    const password = form.value['password'];
-    this.useLog.logUser(username,password);
-    this.router.navigate(['/backoffice']);
-
-
+    const username = form.value.username;
+    const password = form.value.password;
+    const user = new User(null, username, password);
+    if (this.userService.connectUser(user)) {
+      this.router.navigate(['/backoffice']);
+    } else {
+      this.errorConnexion = true;
+    }
   }
 
 }
