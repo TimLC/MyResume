@@ -95,7 +95,7 @@ const appRoutes: Routes = [
     EditProfilComponent,
     EditHobbieComponent,
     EditExperienceComponent,
-    MyGitProjectComponent
+    MyGitProjectComponent,
     EditCompetenceComponent,
     EditProjectComponent
   ],
@@ -107,7 +107,7 @@ const appRoutes: Routes = [
     HttpClientModule
   ],
   providers: [GitAPIService, GitAPIModel, MyGitComponent,ExperienceService ],
-  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
