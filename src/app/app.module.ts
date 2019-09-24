@@ -28,6 +28,8 @@ import { MyGitProjectComponent } from './my-git-project/my-git-project.component
 import { EditProjectComponent } from './edit-project/edit-project.component';
 import { ExperienceService } from "../service/experience.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
+import {PersonService} from "../service/person.service";
+import {ProjectService} from "../service/project.service";
 
 
 const appRoutes: Routes = [
@@ -106,7 +108,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [GitAPIService, GitAPIModel, MyGitComponent,ExperienceService ],
+  providers: [GitAPIService, GitAPIModel, MyGitComponent,ExperienceService,PersonService,ProjectService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

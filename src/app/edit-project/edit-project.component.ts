@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ProjectService} from "../../service/project.service";
 
 @Component({
   selector: 'app-edit-project',
@@ -10,7 +11,7 @@ export class EditProjectComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private projectService: ProjectService) {}
 
   ngOnInit() {
 
@@ -21,8 +22,20 @@ export class EditProjectComponent implements OnInit {
     this.userForm = this.formBuilder.group({
       projects: this.formBuilder.array([]),
     });
+    this.findExperienceBDD();
   }
-
+  findExperienceBDD() {
+    this.projectService.getProjects().subscribe(
+      projects => {
+        projects.forEach(
+          project => {
+            const newProjectControl = this.formBuilder.group(project);
+            this.getProjects().push(newProjectControl);
+          }
+        )
+      }
+    )
+  }
   onSubmitForm() {
 
   }

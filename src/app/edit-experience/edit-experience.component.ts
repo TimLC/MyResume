@@ -28,7 +28,6 @@ export class EditExperienceComponent implements OnInit {
     this.findExperienceBDD();
   }
   findExperienceBDD() {
-    let Experiences: Array<Experience> = [];
     this.experiences.getExperiences().subscribe(
       experiences => {
         experiences.forEach(

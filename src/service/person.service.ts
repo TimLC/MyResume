@@ -13,10 +13,10 @@ export class PersonService {
   private url: string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.url;
+    this.url = 'http://localhost:8080';
   }
 
-  getPerson(): Observable<Person> {
+  getPerson() {
     return this.http.get<Person>(`${this.url}/person`).pipe(timeout(10000));
   }
 

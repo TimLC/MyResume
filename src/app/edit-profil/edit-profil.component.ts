@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
+import {PersonService} from "../../service/person.service";
+import {Person} from "../../Model/person";
 
 @Component({
   selector: 'app-edit-profil',
@@ -10,27 +12,51 @@ export class EditProfilComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private personService: PersonService) { }
 
   ngOnInit() {
+    this.userForm = this.formBuilder.group({
+      fullName: '',
+      emailAddress: '',
+      phoneNumber: '',
+      linkedInLink: '',
+      idGithub:'',
+      jobTittle:''});
     this.initForm();
   }
 
   initForm() {
-    this.userForm = this.formBuilder.group({
-    });
+
+    this.personService.getPerson().subscribe(
+      person => {
+        console.log(person);
+        this.userForm = this.formBuilder.group({
+          fullName: person.fullName,
+          emailAddress: person.emailAddress,
+          phoneNumber: person.phoneNumber,
+          linkedInLink: person.linkedInLink,
+          idGithub: person.idGithub,
+          jobTittle: person.jobTitle
+        });
+      }
+    )
 
   }
 
-  onSubmit(form: NgForm) {
-    const lastName = form.value['lastName'];
-    const firstName = form.value['firstName'];
-    const email = form.value['email'];
-    const phoneNumber = form.value['phoneNumber'];
+  onSubmitProfil() {
+    const formValue = this.userForm.value;
+    const newPerson = new Person(
+      1,
+      formValue['fullName'],
+      formValue['emailAddress'],
+      formValue['phoneNumber'],
+      formValue['linkedInLink'],
+      formValue['idGithub'],
+      formValue['jobTittle']
+    );
 
-    const urlLinkedin = form.value['urlLinkedin'];
-    const urlGithub = form.value['urlGithub'];
-    const jobTittle = form.value['jobTittle'];
+    let test = this.personService.updatePerson(newPerson);
+    console.log(test);
   }
 
 }
