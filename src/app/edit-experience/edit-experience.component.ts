@@ -11,6 +11,7 @@ import {Experience} from "../../Model/experience";
 export class EditExperienceComponent implements OnInit {
 
   userForm: FormGroup;
+  experienceList:Experience[]=[];
 
 
   constructor(private formBuilder: FormBuilder, private experiences: ExperienceService) { }
@@ -31,6 +32,7 @@ export class EditExperienceComponent implements OnInit {
     let Experiences: Array<Experience> = [];
     this.experiences.getExperiences().subscribe(
       experiences => {
+        this.experienceList=experiences;
         experiences.forEach(
           experience => {
             const newExperienceControl = this.formBuilder.group(experience);
@@ -41,7 +43,10 @@ export class EditExperienceComponent implements OnInit {
     )
   }
   onSubmitForm() {
-
+    //TODO: supprimer les ancienne bdd
+    // recuperer tout les formulaire
+    //mettre en forme d'objets experience
+    //push les objets dans la bdd
   }
 
   onAddExperience() {
