@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-edit-profil',
@@ -8,17 +8,28 @@ import {NgForm} from "@angular/forms";
 })
 export class EditProfilComponent implements OnInit {
 
-  constructor() { }
+  userForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.initForm();
+  }
+
+  initForm() {
+    this.userForm = this.formBuilder.group({
+    });
+
   }
 
   onSubmit(form: NgForm) {
     const lastName = form.value['lastName'];
     const firstName = form.value['firstName'];
-    const oldPassword = form.value['oldPassword'];
-    const newPassword = form.value['newPassword'];
-    const confirmNewPassword = form.value['confirmNewPassword'];
+    const email = form.value['email'];
+    const phoneNumber = form.value['phoneNumber'];
+
+    const urlLinkedin = form.value['urlLinkedin'];
+    const urlGithub = form.value['urlGithub'];
     const jobTittle = form.value['jobTittle'];
   }
 
