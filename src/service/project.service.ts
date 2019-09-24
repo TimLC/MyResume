@@ -16,7 +16,7 @@ export class ProjectService {
     this.url = environment.url;
   }
 
-  getProjects(): Observable<Project[]> {
+  getProjects(){
     return this.http.get<Project[]>(`${this.url}/projects`).pipe(timeout(10000));
   }
 
