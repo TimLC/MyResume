@@ -1,0 +1,9 @@
+
+.tittle{
+  font-optical-sizing: auto;
+  font-family: "Helvetica Neue", serif;
+  text-align: center;
+}
+.description{
+  -ms-text-justify: auto;
+}

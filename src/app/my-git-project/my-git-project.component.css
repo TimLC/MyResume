@@ -1,0 +1,19 @@
+.marg{
+  margin: 2rem;
+}
+.tittle{
+  margin: 2.8%;
+  font-optical-sizing: auto;
+  font-family: 'Roboto ', serif;
+  font-size: 135%;
+  text-align: center;
+}
+.description{
+  font-family: 'Roboto Condensed', sans-serif bold;
+  font-size: 92%;
+  -ms-text-justify: auto;
+}
+.commits{
+  font-size: 80%;
+  font-family: 'Roboto ', serif;
+}
