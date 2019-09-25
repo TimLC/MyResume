@@ -1,0 +1,27 @@
+.marg{
+  margin: 1%;
+  padding: 3%;
+
+}
+.tittle{
+  margin: 2.8%;
+
+
+  font-size: 140%;
+  text-align: center;
+}
+.description{
+  /* font-family: 'Roboto Condensed', sans-serif bold;*/
+  font-size: 92%;
+  -ms-text-justify: auto;
+}
+.encadre
+{
+  background-color: white;
+
+  /*font-family: 'Bree Serif', serif;*/
+  min-height: 5em;
+  text-align: center;
+  padding: 4.2%;
+
+}

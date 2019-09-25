@@ -1,26 +1,22 @@
-<div>
-  <h2 class="offset-md-2 col-md-8">Experiences</h2>
-  <br>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item" *ngFor="let experience of Experiences">
-      <app-experience [experienceTransfert]="experience"></app-experience>
-    </li>
-  </ul>
-  <br>
-  <h2 class="offset-md-2 col-md-8">Skills</h2>
-  <br>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item" *ngFor="let t of test">
+<div class="row container-fluid">
+  <div class="col-sm-8 encadre">
+  <h2 class="offset-md-2 col-md-8 tittle">Experiences</h2>
+  <li class="list-group-item encadre" >
+      <app-experience ></app-experience>
+  </li>
+  </div>
+  <div class=" col-sm-4 encadre">
+  <h2 class="tittle">Skills</h2>
+    <li class="list-group-item encadre" >
       <app-skill></app-skill>
     </li>
-  </ul>
-  <br>
-  <h2 class="offset-md-2 col-md-8">Hobbies</h2>
-  <br>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item" *ngFor="let t of test">
+
+
+  <h2 class="tittle">Hobbies</h2>
+
+    <li class="list-group-item encadre" >
       <app-hobbie></app-hobbie>
     </li>
-  </ul>
-  <br>
+
+  </div>
 </div>

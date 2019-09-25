@@ -28,8 +28,15 @@ export class SkillService {
     return this.http.post<any>(`${this.url}/skills/update`, skill).pipe(timeout(10000));
   }
 
-  addSkill(skill: Skill): Observable<Skill> {
-    return this.http.post<any>(`${this.url}/skills/add`, skill).pipe(timeout(10000));
+  addSkill(skill: Skill) {
+    return this.http.post<any>(`${this.url}/skills/add`, skill).subscribe(
+      () => {
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    );
   }
 
   getSkill(id: number): Observable<Skill> {

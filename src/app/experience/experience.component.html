@@ -1,4 +1,6 @@
-<h3>{{experienceTransfert.company}}</h3>
-<p>{{experienceTransfert.beginDate}} - {{experienceTransfert.endDate}}</p>
-<p>{{experienceTransfert.address}}</p>
-<p>{{experienceTransfert.description}}</p>
+<div class="encadre" *ngFor="let exp of experiences">
+  <div class="tittle">{{exp.company}}</div>
+  <div>{{exp.beginDate}}--{{exp.endDate}}</div>
+  <div class="description">{{exp.description}}</div>
+  <div>{{exp.address}}</div>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HobbyService} from "../../service/hobby.service";
+import {Hobby} from "../../Model/hobbies";
 
 @Component({
   selector: 'app-edit-hobbie',
@@ -27,7 +28,7 @@ export class EditHobbieComponent implements OnInit {
   findProjectBDD() {
     this.hobbyService.getHobbies().subscribe(
       hobbites => {
-        console.log(hobbites)
+        console.log(hobbites);
         hobbites.forEach(
           hobbite => {
             const newProjectControl = this.formBuilder.group(hobbite);
@@ -40,10 +41,23 @@ export class EditHobbieComponent implements OnInit {
 
   onSubmitForm() {
 
+    const formValue = this.userForm.value;
+    console.log(formValue);
+    formValue.hobbies.forEach(data=>{
+      console.log(data);
+      if(data.id==null){
+        this.hobbyService.addHobby(data)
+      }
+      else {
+        this.hobbyService.updateHobby(data);
+      }
+
+    })
   }
 
   onAddHobby() {
-    const newHobbyControl = this.formBuilder.control(null, Validators.required);
+    const hob= new Hobby(null,null);
+    const newHobbyControl = this.formBuilder.group(hob);
     this.getHobbies().push(newHobbyControl);
   }
   getHobbies(): FormArray {
@@ -51,6 +65,13 @@ export class EditHobbieComponent implements OnInit {
   }
 
   onSuppHobby(index) {
+    let id=this.getHobbies().value[index].id;
+    if (id != null){
+      console.log(id);
+      this.hobbyService.deleteHobby(id);
+    }
     this.getHobbies().removeAt(index);
+
+
   }
 }

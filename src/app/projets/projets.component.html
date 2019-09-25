@@ -1,1 +1,6 @@
-<p>projets works!</p>
+<div class="encadre" *ngFor="let projet of projects">
+  <div class="tittle">{{projet.projectName}}</div>
+  <div>{{projet.beginDate}} -- {{projet.endDate}}</div>
+  <div class="description">{{projet.description}}</div>
+  <div>{{projet.gitLink}}</div>
+</div>

@@ -1,14 +1,13 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
-
-  <div formArrayName="competences">
-    <h3>Your competences</h3>
-    <div class="form-group" *ngFor="let competenceControl of getSkills().controls; let j = index" [formControlName]="j">
+  <div formArrayName="competence">
+    <h3>Your skills</h3>
+    <div class="form-group" *ngFor="let hobbyControl of getSkills().controls; let i = index" [formGroupName]="i">
       <div class="row">
-        <input type="text" class="form-control col-sm-10"  formControlName="skillName">
-        <button type="button" class="btn btn-danger col-sm-2" (click)="onSuppSkill(j)">Delete</button>
+        <input type="text" class="form-control col-sm-10" id="skillName" name="skillName" formControlName="skillName">
+        <button type="button" class="btn btn-danger col-sm-2" (click)="onSuppSkill(i)">Delete</button>
       </div>
     </div>
-    <button type="button" class="btn btn-success" (click)="onAddSkill()">Add competence</button>
+    <button type="button" class="btn btn-success" (click)="onAddSkill()">Add hobby</button>
   </div>
   <br>
 

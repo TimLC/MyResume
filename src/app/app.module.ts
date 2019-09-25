@@ -33,6 +33,7 @@ import {PersonService} from "../service/person.service";
 import {ProjectService} from "../service/project.service";
 import {UserService} from "../service/user-service.service";
 import {HobbyService} from "../service/hobby.service";
+import {SkillService} from "../service/skill.service";
 
 
 const appRoutes: Routes = [
@@ -57,7 +58,9 @@ const appRoutes: Routes = [
       {path: '**', redirectTo: 'activities'}
     ]},
   {path: 'login', component: BackOfficeLogComponent},
+
   {path: 'backoffice', component: BackOfficeComponent, canActivate: [AuthGuard] ,
+
     children: [
       {
         path : 'Profil',
@@ -114,7 +117,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [GitAPIService, GitAPIModel, MyGitComponent,ExperienceService,PersonService,ProjectService,AuthGuard,UserService,HobbyService ],
+  providers: [GitAPIService, GitAPIModel, MyGitComponent,ExperienceService,PersonService,ProjectService,AuthGuard,UserService,HobbyService, SkillService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

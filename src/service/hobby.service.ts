@@ -28,8 +28,15 @@ export class HobbyService {
     return this.http.post<any>(`${this.url}/hobbies/update`, hobby).pipe(timeout(10000));
   }
 
-  addHobby(hobby: Hobby): Observable<Hobby> {
-    return this.http.post<any>(`${this.url}/hobbies/add`, hobby).pipe(timeout(10000));
+  addHobby(hobby: Hobby) {
+    return this.http.post<any>(`${this.url}/hobbies/add`, hobby).subscribe(
+      () => {
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    );
   }
 
   getHobby(id: number): Observable<Hobby> {

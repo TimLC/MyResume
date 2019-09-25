@@ -45,7 +45,7 @@ export class UserService {
     return this.http.put<User>(`${this.url}/user/update/password`, user).pipe(timeout(10000));
   }
 
-  public isLog() {
+  isLog() {
     if (localStorage.getItem('isLog')) {
       return true;
     }
