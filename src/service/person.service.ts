@@ -19,7 +19,14 @@ export class PersonService {
   }
 
   updatePerson(person: Person) {
-    return this.http.put<Person>(`${this.url}/person/update`, person).pipe(timeout(10000));
+    return this.http.put<Person>(`${this.url}/person/update`, person).subscribe(
+      () => {
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    );
   }
 
 }

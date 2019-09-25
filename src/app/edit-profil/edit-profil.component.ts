@@ -45,7 +45,7 @@ export class EditProfilComponent implements OnInit {
 
   onSubmitProfil() {
     const formValue = this.userForm.value;
-    const newPerson = new Person(
+    var newPerson = new Person(
       1,
       formValue.fullName,
       formValue.emailAddress,
