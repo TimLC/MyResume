@@ -40,21 +40,20 @@ export class EditProjectComponent implements OnInit {
     )
   }
   onSubmitForm() {
-    console.log("test")
     const formValue = this.userForm.value;
-    for(let project in formValue.projects[2]) {
+    console.log(formValue.projects)
 
-    }
-
-    // var newProject = new Project(
-    //   1,
-    //   formValue.projectName,
-    //   formValue.emailAddress,
-    //   formValue.phoneNumber,
-    //   formValue.linkedInLink,
-    //   formValue.idGithub,
-    // );
-    // this.personService.updatePerson(newProject);
+    formValue.projects.forEach( project => {
+      console.log(project)
+      const newProject = new Project(Number(project.id), project.projectName,project.beginDate,project.endDate,project.description,project.gitLink);
+      console.log(newProject);
+      if(project.id == null) {
+        this.projectService.addProject(newProject);
+      }
+      else {
+        this.projectService.addProject(newProject);
+      }
+    })
   }
 
   onAddProject() {
@@ -67,6 +66,26 @@ export class EditProjectComponent implements OnInit {
   }
 
   onSuppProject(index) {
-    this.getProjects().removeAt(index);
+    {
+      let id=this.getProjects().value[index].id;
+      if (id != null){
+        console.log(id);
+        this.projectService.deleteProject(id);
+      }
+      this.getProjects().removeAt(index);
+
+
+    }
+    // this.getProjects().removeAt(index);
+    // const formValue = this.userForm.value;
+    // formValue.projects.forEach( function(project,index2) {
+    //   console.log("bite");
+    //   if(project.id != null && index == index2 ) {
+    //     console.log(index2);
+    //     console.log("bite");
+    //     console.log(project.id);
+    //     this.projectService.deleteProject(project.id);
+    //   }
+    // })
   }
 }

@@ -32,6 +32,7 @@ import {HttpClient, HttpClientModule} from "@angular/common/http";
 import {PersonService} from "../service/person.service";
 import {ProjectService} from "../service/project.service";
 import {UserService} from "../service/user-service.service";
+import {HobbyService} from "../service/hobby.service";
 
 
 const appRoutes: Routes = [
@@ -113,7 +114,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [GitAPIService, GitAPIModel, MyGitComponent,ExperienceService,PersonService,ProjectService,AuthGuard,UserService ],
+  providers: [GitAPIService, GitAPIModel, MyGitComponent,ExperienceService,PersonService,ProjectService,AuthGuard,UserService,HobbyService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

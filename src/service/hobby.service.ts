@@ -13,15 +13,15 @@ export class HobbyService {
   private url: string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.url;
+    this.url = 'http://localhost:8080';
   }
 
-  getHobbies(): Observable<Hobby[]> {
+  getHobbies(){
     return this.http.get<Hobby[]>(`${this.url}/hobbies`).pipe(timeout(10000));
   }
 
-  deleteHobby(id: number): Observable<Hobby[]> {
-    return this.http.get<Hobby[]>(`${this.url}/hobbies/delete/${id}`).pipe(timeout(10000));
+  deleteHobby(id: number){
+    return this.http.delete(`${this.url}/hobbies/delete/${id}`).pipe(timeout(10000));
   }
 
   updateHobby(hobby: Hobby): Observable<Hobby> {
