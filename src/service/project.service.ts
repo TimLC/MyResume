@@ -13,7 +13,7 @@ export class ProjectService {
   private url: string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.url;
+    this.url = 'http://localhost:8080';
   }
 
   getProjects(){

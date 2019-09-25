@@ -1,9 +1,10 @@
+<script src="edit-project.component.ts"></script>
 <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
   <div formArrayName="projects">
     <h3>Your projects</h3>
     <div class="form-group" *ngFor="let project of getProjects().controls; let j = index" [formGroupName]="j">
       <label>Project name</label>
-      <input type="text" class="form-control" formControlName="company">
+      <input type="text" class="form-control" id="projectName" name="projectName" formControlName="projectName">
       <label>Strating date</label>
       <input type="text" class="form-control" formControlName="beginDate">
       <label>Ending date</label>
@@ -18,4 +19,5 @@
     </div>
     <button type="button" class="btn btn-success" (click)="onAddProject()">Add competence</button>
   </div>
+  <button type="submit" class="btn btn-primary mb-2">Save</button>
   <br>
