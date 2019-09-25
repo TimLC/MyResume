@@ -30,16 +30,30 @@ export class ExperienceService {
     // return this.http.get<Experience[]>(`${this.url}/experiences`).pipe(timeout(10000));
   }
 
-  deleteExperience(id: number): Observable<Experience[]> {
-    return this.http.get<Experience[]>(`${this.url}/experiences/delete/${id}`).pipe(timeout(10000));
+  deleteExperience(id: number) {
+    return this.http.delete(`${this.url}/experiences/delete/${id}`).pipe(timeout(10000)).subscribe(
+      () => {
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    );
   }
 
   updateExperience(experience: Experience): Observable<Experience> {
     return this.http.post<any>(`${this.url}/experiences/update`, experience).pipe(timeout(10000));
   }
 
-  addExperience(experience: Experience): Observable<Experience> {
-    return this.http.post<any>(`${this.url}/experiences/add`, experience).pipe(timeout(10000));
+  addExperience(experience: Experience){
+    return this.http.post<any>(`${this.url}/experiences/add`, experience).subscribe(
+      () => {
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    )
   }
 
   getExperience(id: number): Observable<Experience> {

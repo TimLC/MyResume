@@ -41,9 +41,10 @@ export class EditProjectComponent implements OnInit {
   }
   onSubmitForm() {
     console.log("test")
-    console.log(this.userForm.value)
+
     const formValue = this.userForm.value;
-    console.log(formValue.value(0))
+    console.log(formValue.projects[0]);
+
 
     // var newProject = new Project(
     //   1,

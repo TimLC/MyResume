@@ -41,10 +41,23 @@ export class EditExperienceComponent implements OnInit {
   }
   onSubmitForm() {
 
+    const formValue = this.userForm.value;
+
+    formValue.experiences.forEach(data=>{
+      console.log(data);
+      if(data.id==null){
+        this.experiences.addExperience(data)
+      }
+      else {
+        this.experiences.updateExperience(data);
+      }
+
+    })
   }
 
   onAddExperience() {
-    const newExperienceControl = this.formBuilder.control(null, Validators.required);
+    const expe= new Experience(null,null,null,null,null,null);
+    const newExperienceControl = this.formBuilder.group(expe);
     this.getExperiences().push(newExperienceControl);
 
   }
@@ -54,6 +67,13 @@ export class EditExperienceComponent implements OnInit {
   }
 
   onSuppExperience(index) {
+    let id=this.getExperiences().value[index].id;
+    if (id != null){
+      console.log(id);
+      this.experiences.deleteExperience(id);
+    }
     this.getExperiences().removeAt(index);
+
+
   }
 }
