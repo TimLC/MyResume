@@ -20,8 +20,15 @@ export class PersonService {
     return this.http.get<Person>(`${this.url}/person`).pipe(timeout(10000));
   }
 
-  updatePerson(person: Person): Observable<Person> {
-    return this.http.put<Person>(`${this.url}/person/update`, person).pipe(timeout(10000));
+  updatePerson(person: Person) {
+    return this.http.put<Person>(`${this.url}/person/update`, person).subscribe(
+      () => {
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    );
   }
 
 }

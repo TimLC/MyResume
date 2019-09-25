@@ -45,7 +45,7 @@ export class EditProfilComponent implements OnInit {
 
   onSubmitProfil() {
     const formValue = this.userForm.value;
-    const newPerson = new Person(
+    var newPerson = new Person(
       1,
       formValue['fullName'],
       formValue['emailAddress'],
@@ -54,9 +54,7 @@ export class EditProfilComponent implements OnInit {
       formValue['idGithub'],
       formValue['jobTittle']
     );
-
     let test = this.personService.updatePerson(newPerson);
-    console.log(test);
   }
 
 }
