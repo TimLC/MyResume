@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ExperienceService} from "../../service/experience.service";
-import {Experience} from "../../Model/experience";
+import {ExperienceService} from '../../service/experience.service';
+import {Experience} from '../../Model/experience';
 
 @Component({
   selector: 'app-resume',
@@ -8,7 +8,7 @@ import {Experience} from "../../Model/experience";
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit {
-  test=['a','b','c','d'];
+  test = ['a', 'b', 'c', 'd'];
   Experiences: Experience[] = [];
   constructor(private experiences: ExperienceService) { }
 
@@ -16,9 +16,9 @@ export class ResumeComponent implements OnInit {
     this.findExperienceBDD();
   }
   findExperienceBDD() {
-    this.Experiences = this.experiences.getExperiences();
-    //this.experiences.setExperience();
-    //this.Experiences = this.experiences.getExperience();
+    // this.Experiences = this.experiences.getExperiences();
+    // this.experiences.setExperience();
+    // this.Experiences = this.experiences.getExperience();
   }
 
 }
