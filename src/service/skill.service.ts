@@ -13,15 +13,15 @@ export class SkillService {
   private url: string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.url;
+    this.url = "http://localhost:8080";
   }
 
-  getSkills(): Observable<Skill[]> {
+  getSkills() {
     return this.http.get<Skill[]>(`${this.url}/skills`).pipe(timeout(10000));
   }
 
-  deleteSkill(id: number): Observable<Skill[]> {
-    return this.http.get<Skill[]>(`${this.url}/skills/delete/${id}`).pipe(timeout(10000));
+  deleteSkill(id: number)  {
+    return this.http.delete(`${this.url}/skills/delete/${id}`).pipe(timeout(10000));
   }
 
   updateSkill(skill: Skill): Observable<Skill> {

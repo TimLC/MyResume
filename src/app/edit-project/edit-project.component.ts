@@ -40,9 +40,9 @@ export class EditProjectComponent implements OnInit {
     )
   }
   onSubmitForm() {
-    const formValue = this.userForm.value;
-    console.log(formValue.projects)
 
+    const formValue = this.userForm.value;
+    console.log(formValue.projects);
     formValue.projects.forEach( project => {
       console.log(project)
       const newProject = new Project(Number(project.id), project.projectName,project.beginDate,project.endDate,project.description,project.gitLink);
