@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, NgForm} from "@angular/forms";
-import {PersonService} from "../../service/person.service";
-import {Person} from "../../Model/person";
+import {FormBuilder, FormGroup, NgForm} from '@angular/forms';
+import {PersonService} from '../../service/person.service';
+import {Person} from '../../Model/person';
 
 @Component({
   selector: 'app-edit-profil',
@@ -12,7 +12,7 @@ export class EditProfilComponent implements OnInit {
 
   userForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder,private personService: PersonService) { }
+  constructor(private formBuilder: FormBuilder, private personService: PersonService) { }
 
   ngOnInit() {
     this.userForm = this.formBuilder.group({
@@ -20,8 +20,8 @@ export class EditProfilComponent implements OnInit {
       emailAddress: '',
       phoneNumber: '',
       linkedInLink: '',
-      idGithub:'',
-      jobTittle:''});
+      idGithub: '',
+      jobTittle: ''});
     this.initForm();
   }
 
@@ -39,7 +39,7 @@ export class EditProfilComponent implements OnInit {
           jobTittle: person.jobTitle
         });
       }
-    )
+    );
 
   }
 
@@ -47,16 +47,14 @@ export class EditProfilComponent implements OnInit {
     const formValue = this.userForm.value;
     const newPerson = new Person(
       1,
-      formValue['fullName'],
-      formValue['emailAddress'],
-      formValue['phoneNumber'],
-      formValue['linkedInLink'],
-      formValue['idGithub'],
-      formValue['jobTittle']
+      formValue.fullName,
+      formValue.emailAddress,
+      formValue.phoneNumber,
+      formValue.linkedInLink,
+      formValue.idGithub,
+      formValue.jobTittle
     );
-
-    let test = this.personService.updatePerson(newPerson);
-    console.log(test);
+    this.personService.updatePerson(newPerson);
   }
 
 }
