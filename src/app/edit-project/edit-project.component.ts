@@ -1,5 +1,5 @@
 import {Component, OnInit } from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Form, FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProjectService} from "../../service/project.service";
 import {Project} from "../../Model/projects";
 import {Person} from "../../Model/person";
@@ -41,9 +41,10 @@ export class EditProjectComponent implements OnInit {
   }
   onSubmitForm() {
     console.log("test")
-    console.log(this.userForm.value)
     const formValue = this.userForm.value;
-    console.log(formValue.value(0))
+    for(let project in formValue.projects[2]) {
+
+    }
 
     // var newProject = new Project(
     //   1,
@@ -57,7 +58,7 @@ export class EditProjectComponent implements OnInit {
   }
 
   onAddProject() {
-    const project = new Project(2,null,null,null,null,null)
+    const project = new Project(null,null,null,null,null,null)
     const newHobbyControl = this.formBuilder.group(project);
     this.getProjects().push(newHobbyControl);
   }
