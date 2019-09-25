@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from "@angular/forms";
+import {FormBuilder, FormGroup, NgForm} from '@angular/forms';
+import {PersonService} from '../../service/person.service';
+import {Person} from '../../Model/person';
 
 @Component({
   selector: 'app-edit-profil',
@@ -8,18 +10,51 @@ import {NgForm} from "@angular/forms";
 })
 export class EditProfilComponent implements OnInit {
 
-  constructor() { }
+  userForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder, private personService: PersonService) { }
 
   ngOnInit() {
+    this.userForm = this.formBuilder.group({
+      fullName: '',
+      emailAddress: '',
+      phoneNumber: '',
+      linkedInLink: '',
+      idGithub: '',
+      jobTittle: ''});
+    this.initForm();
   }
 
-  onSubmit(form: NgForm) {
-    const lastName = form.value['lastName'];
-    const firstName = form.value['firstName'];
-    const oldPassword = form.value['oldPassword'];
-    const newPassword = form.value['newPassword'];
-    const confirmNewPassword = form.value['confirmNewPassword'];
-    const jobTittle = form.value['jobTittle'];
+  initForm() {
+
+    this.personService.getPerson().subscribe(
+      person => {
+        console.log(person);
+        this.userForm = this.formBuilder.group({
+          fullName: person.fullName,
+          emailAddress: person.emailAddress,
+          phoneNumber: person.phoneNumber,
+          linkedInLink: person.linkedInLink,
+          idGithub: person.idGithub,
+          jobTittle: person.jobTitle
+        });
+      }
+    );
+
+  }
+
+  onSubmitProfil() {
+    const formValue = this.userForm.value;
+    var newPerson = new Person(
+      1,
+      formValue.fullName,
+      formValue.emailAddress,
+      formValue.phoneNumber,
+      formValue.linkedInLink,
+      formValue.idGithub,
+      formValue.jobTittle
+    );
+    this.personService.updatePerson(newPerson);
   }
 
 }

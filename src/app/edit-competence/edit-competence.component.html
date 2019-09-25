@@ -2,13 +2,13 @@
 
   <div formArrayName="competences">
     <h3>Your competences</h3>
-    <div class="form-group" *ngFor="let competenceControl of getCompetences().controls; let j = index">
+    <div class="form-group" *ngFor="let competenceControl of getSkills().controls; let j = index" [formControlName]="j">
       <div class="row">
-        <input type="text" class="form-control col-sm-10" [formControlName]="j">
-        <button type="button" class="btn btn-danger col-sm-2" (click)="onSuppCompetence(j)">Delete</button>
+        <input type="text" class="form-control col-sm-10"  formControlName="skillName">
+        <button type="button" class="btn btn-danger col-sm-2" (click)="onSuppSkill(j)">Delete</button>
       </div>
     </div>
-    <button type="button" class="btn btn-success" (click)="onAddCompetence()">Add competence</button>
+    <button type="button" class="btn btn-success" (click)="onAddSkill()">Add competence</button>
   </div>
   <br>
 

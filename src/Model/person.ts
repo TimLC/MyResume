@@ -2,17 +2,17 @@
 export class Person {
     id: number;
     fullName: string;
-    jobTittle: string;
+    jobTitle: string;
     idGithub: string;
     phoneNumber: number;
     emailAddress: string;
     linkedInLink: string;
 
-    constructor(id: number, fullName: string, jobTittle: string, idGithub: string, phoneNumber: number,
+    constructor(id: number, fullName: string, jobTitle: string, idGithub: string, phoneNumber: number,
                 emailAddress: string, linkedInLink: string) {
         this.id = id;
         this.fullName = fullName;
-        this.jobTittle = jobTittle;
+        this.jobTitle = jobTitle;
         this.idGithub = idGithub;
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;

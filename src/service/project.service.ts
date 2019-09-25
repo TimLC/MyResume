@@ -13,23 +13,37 @@ export class ProjectService {
   private url: string;
 
   constructor(private http: HttpClient) {
-    this.url = environment.url;
+    this.url = 'http://localhost:8080';
   }
 
-  getProjects(): Observable<Project[]> {
+  getProjects(){
     return this.http.get<Project[]>(`${this.url}/projects`).pipe(timeout(10000));
   }
 
-  deleteProject(id: number): Observable<Project[]> {
-    return this.http.get<Project[]>(`${this.url}/projects/delete/${id}`).pipe(timeout(10000));
+  deleteProject(id: number){
+    return this.http.delete(`${this.url}/projects/delete/${id}`).subscribe(
+      () => {
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    );
   }
 
   updateProject(project: Project): Observable<Project> {
     return this.http.post<any>(`${this.url}/projects/update`, project).pipe(timeout(10000));
   }
 
-  addProject(project: Project): Observable<Project> {
-    return this.http.post<any>(`${this.url}/projects/add`, project).pipe(timeout(10000));
+  addProject(project: Project){
+    return this.http.post<Project>(`${this.url}/projects/add`, project).subscribe(
+      () => {
+        console.log('Enregistrement terminé !');
+      },
+      (error) => {
+        console.log('Erreur ! : ' + error);
+      }
+    );
   }
 
   getProject(id: number): Observable<Project> {

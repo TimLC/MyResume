@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ExperienceService} from '../../service/experience.service';
+import {Experience} from "../../Model/experience";
 
 @Component({
   selector: 'app-edit-experience',
@@ -10,6 +11,7 @@ import {ExperienceService} from '../../service/experience.service';
 export class EditExperienceComponent implements OnInit {
 
   userForm: FormGroup;
+
 
   constructor(private formBuilder: FormBuilder, private experiences: ExperienceService) { }
 
@@ -26,22 +28,36 @@ export class EditExperienceComponent implements OnInit {
     this.findExperienceBDD();
   }
   findExperienceBDD() {
-    // this.experiences.setExperience();
-    // var experiences = this.experiences.getExperience();
-    //
-    // formBuilder: FormBuilder
-    // for (var i = 0; i < experiences.length; i++) {
-    //   console.log(experiences[i]);
-    //   const newExperienceControl = this.formBuilder.group( experiences[i]);
-    //   this.getExperiences().push(newExperienceControl);
-    //}
+    this.experiences.getExperiences().subscribe(
+      experiences => {
+        experiences.forEach(
+          experience => {
+            const newExperienceControl = this.formBuilder.group(experience);
+            this.getExperiences().push(newExperienceControl);
+          }
+        )
+      }
+    )
   }
   onSubmitForm() {
 
+    const formValue = this.userForm.value;
+
+    formValue.experiences.forEach(data=>{
+      console.log(data);
+      if(data.id==null){
+        this.experiences.addExperience(data)
+      }
+      else {
+        this.experiences.updateExperience(data);
+      }
+
+    })
   }
 
   onAddExperience() {
-    const newExperienceControl = this.formBuilder.control(null, Validators.required);
+    const expe= new Experience(null,null,null,null,null,null);
+    const newExperienceControl = this.formBuilder.group(expe);
     this.getExperiences().push(newExperienceControl);
 
   }
@@ -51,6 +67,13 @@ export class EditExperienceComponent implements OnInit {
   }
 
   onSuppExperience(index) {
+    let id=this.getExperiences().value[index].id;
+    if (id != null){
+      console.log(id);
+      this.experiences.deleteExperience(id);
+    }
     this.getExperiences().removeAt(index);
+
+
   }
 }
