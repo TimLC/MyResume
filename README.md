@@ -1,27 +1,25 @@
 # Myresume
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.3.
+This project is a web site resume.
 
 ## Development server
+1. Clone the project's front-end using `git clone https://github.com/TimLC/MyResume.git`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2. In another directory clone the Back-end using `git clone https://github.com/resourcepool/https://github.com/TimLC/MyResume-Backend.git`
 
-## Code scaffolding
+3. Follow the README.md instruction of the back-end to set up and launch it.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+4. Launch the front-end application and go to:`http://localhost:4200/frontend`
 
-## Build
+5. Congratulations, you can navigate in our resume web site.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+6. To modify any features of our resume you can log yourself to:`http://localhost:4200/login`
 
-## Running unit tests
+7. For the best security,use login:`admin` and password:`admin`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+8. You can now navigate on the back-office to modify, add or delete stuff.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To get more help you can contact us at: `pierre-louis.franc@epfedu.fr`
