@@ -1,5 +1,5 @@
 import {Component, OnInit } from '@angular/core';
-import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Form, FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ProjectService} from "../../service/project.service";
 import {Project} from "../../Model/projects";
 import {Person} from "../../Model/person";
@@ -40,25 +40,24 @@ export class EditProjectComponent implements OnInit {
     )
   }
   onSubmitForm() {
-    console.log("test")
 
     const formValue = this.userForm.value;
-    console.log(formValue.projects[0]);
-
-
-    // var newProject = new Project(
-    //   1,
-    //   formValue.projectName,
-    //   formValue.emailAddress,
-    //   formValue.phoneNumber,
-    //   formValue.linkedInLink,
-    //   formValue.idGithub,
-    // );
-    // this.personService.updatePerson(newProject);
+    console.log(formValue.projects);
+    formValue.projects.forEach( project => {
+      console.log(project)
+      const newProject = new Project(Number(project.id), project.projectName,project.beginDate,project.endDate,project.description,project.gitLink);
+      console.log(newProject);
+      if(project.id == null) {
+        this.projectService.addProject(newProject);
+      }
+      else {
+        this.projectService.addProject(newProject);
+      }
+    })
   }
 
   onAddProject() {
-    const project = new Project(2,null,null,null,null,null)
+    const project = new Project(null,null,null,null,null,null)
     const newHobbyControl = this.formBuilder.group(project);
     this.getProjects().push(newHobbyControl);
   }
@@ -67,6 +66,26 @@ export class EditProjectComponent implements OnInit {
   }
 
   onSuppProject(index) {
-    this.getProjects().removeAt(index);
+    {
+      let id=this.getProjects().value[index].id;
+      if (id != null){
+        console.log(id);
+        this.projectService.deleteProject(id);
+      }
+      this.getProjects().removeAt(index);
+
+
+    }
+    // this.getProjects().removeAt(index);
+    // const formValue = this.userForm.value;
+    // formValue.projects.forEach( function(project,index2) {
+    //   console.log("bite");
+    //   if(project.id != null && index == index2 ) {
+    //     console.log(index2);
+    //     console.log("bite");
+    //     console.log(project.id);
+    //     this.projectService.deleteProject(project.id);
+    //   }
+    // })
   }
 }

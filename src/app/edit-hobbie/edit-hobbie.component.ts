@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {HobbyService} from "../../service/hobby.service";
 
 @Component({
   selector: 'app-edit-hobbie',
@@ -9,9 +10,8 @@ import {FormArray, FormBuilder, FormGroup, Validators} from "@angular/forms";
 export class EditHobbieComponent implements OnInit {
 
   userForm: FormGroup;
-  save = ['a','b','c','d'];
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private hobbyService: HobbyService) {}
 
   ngOnInit() {
 
@@ -20,8 +20,22 @@ export class EditHobbieComponent implements OnInit {
 
   initForm() {
     this.userForm = this.formBuilder.group({
-      hobbies: this.formBuilder.array(this.save),
+      hobbies: this.formBuilder.array([]),
     });
+    this.findProjectBDD()
+  }
+  findProjectBDD() {
+    this.hobbyService.getHobbies().subscribe(
+      hobbites => {
+        console.log(hobbites)
+        hobbites.forEach(
+          hobbite => {
+            const newProjectControl = this.formBuilder.group(hobbite);
+            this.getHobbies().push(newProjectControl);
+          }
+        )
+      }
+    )
   }
 
   onSubmitForm() {

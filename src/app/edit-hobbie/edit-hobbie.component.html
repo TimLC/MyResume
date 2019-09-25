@@ -1,9 +1,9 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
   <div formArrayName="hobbies">
     <h3>Your hobbies</h3>
-    <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i = index">
+    <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i = index" [formGroupName]="i">
       <div class="row">
-        <input type="text" class="form-control col-sm-10" [formControlName]="i">
+        <input type="text" class="form-control col-sm-10" id="hobbyName" name="hobbyName" formControlName="hobbyName">
         <button type="button" class="btn btn-danger col-sm-2" (click)="onSuppHobby(i)">Delete</button>
       </div>
     </div>
